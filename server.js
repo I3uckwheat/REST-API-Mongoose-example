@@ -3,6 +3,7 @@ const morgan = require("morgan")
 const bodyParser = require("body-parser")
 const errorhandler = require("errorhandler")
 const mongoose = require("mongoose")
+const PORT = 3333 || process.env.PORT;
 
 const app = express();
 
@@ -58,4 +59,6 @@ app.delete("/accounts/:id", (req, res) => {
   res.send("Removed")
 })
 
-app.listen("3000")
+app.listen(port, () => {
+  console.log(`Started on port ${port}`);
+});
